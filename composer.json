@@ -1,0 +1,30 @@
+{
+    "name": "ntgnn/swagger",
+    "description": "A swagger helper",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ntgnn",
+            "email": "antognoni.albuquerque@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1.3",
+        "laravel/framework": "5.6.*|5.7.*|5.8.*",
+        "zircote/swagger-php": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ntgnn\\Swagger\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ntgnn\\Swagger\\SwaggerServiceProvider"
+            ]
+        }
+    }
+}
