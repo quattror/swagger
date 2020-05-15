@@ -28,7 +28,6 @@ class SwaggerGenerateDocsCommand extends Command
 
             if(config('swagger.generator.include_git_info', false))
                 $description .= $this->getGitInfo();
-                //$description .= '<br/>Git Info';
 
             SwaggerGenerator::generateDocs([ 'DESCRIPTION' => $description]);
             $this->info('Documentation generated');
@@ -41,12 +40,12 @@ class SwaggerGenerateDocsCommand extends Command
     private function getAppInfo()
     {
         return '<br><p>Informações da Aplicação:</p>' .
-                '<ul>' .
-                    '<li>Ambiente atual: <b>' . strtoupper(env('APP_ENV', 'local')) . '</b></li>' .
-                    '<li>Banco de dados (' . env('DB_CONNECTION', 'exemplo') . '): <b>' . env('DB_DATABASE', 'DBEXE') . '</b></li>' .
-                    '<li>URL da API do Portal de Sistemas: <a href=\'' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') . '\'>' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') .'</a></li>'.
-                    '<li>Portal Token Key: <b>' . env('PORTAL_API_TOKEN_KEY', 'exemplotokenkey') . '</b></li>'.
-                '</ul>';
+            '<ul>' .
+            '<li>Ambiente atual: <b>' . strtoupper(env('APP_ENV', 'local')) . '</b></li>' .
+            '<li>Banco de dados (' . env('DB_CONNECTION', 'exemplo') . '): <b>' . env('DB_DATABASE', 'DBEXE') . '</b></li>' .
+            '<li>URL da API do Portal de Sistemas: <a href=\'' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') . '\'>' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') .'</a></li>'.
+            '<li>Portal Token Key: <b>' . env('PORTAL_API_TOKEN_KEY', 'exemplotokenkey') . '</b></li>'.
+            '</ul>';
     }
 
     private function getGitInfo()
@@ -67,15 +66,15 @@ class SwaggerGenerateDocsCommand extends Command
             $gitBranch = $outBranch[0];
 
             $outCommit = [];
-            exec('git log -1 --pretty=\'%h (por %cn em %ci)\'',$outCommit);
+            exec('git log -1 --pretty="%h (por %cn em %ci)"',$outCommit);
             $gitCommit = $outCommit[0];
         }
 
         return '<p>Informações do Git:</p>' .
-                '<ul>' .
-                    '<li>Repositório: ' . $gitRepoUrl .'</li>' .
-                    '<li>Branch: <b> ' . strtoupper($gitBranch) . '</b></li>' .
-                    '<li>Commit: ' . $gitCommit . '</li>' .
-                '</ul>';
+            '<ul>' .
+            '<li>Repositório: <a href=\'' . $gitRepoUrl . '\'>' . $gitRepoUrl . '</a></li>' .
+            '<li>Branch: <b> ' . strtoupper($gitBranch) . '</b></li>' .
+            '<li>Commit: ' . $gitCommit . '</li>' .
+            '</ul>';
     }
 }
