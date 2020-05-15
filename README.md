@@ -8,7 +8,7 @@ To install this package in your laravel app, just use composer:
 ```bash
 $ composer require ntgnn/swagger
 ```
-Once the package is loaded, it will provide you 3 console commands: init, generate-docs and copy-assets
+After the package is loaded, it will provide you with 3 console commands: init, generate-docs and copy-assets
 
 ***Init***: the init command will setup the settings file (config/swagger.php) and create a very basic folder structure for swagger-related files inside your app/Http folder. You should run this command only once per install. 
 
