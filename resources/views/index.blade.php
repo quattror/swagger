@@ -86,10 +86,6 @@
         configObject.dom_id = "#swagger-ui";
         configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
         configObject.layout = "StandaloneLayout";
-        configObject.requestInterceptor = function () {
-            this.headers['X-CSRF-TOKEN'] = '{{ csrf_token() }}';
-            return this;
-        };
 
         // If oauth2RedirectUrl isn't specified, use the built-in default
         if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
