@@ -10,10 +10,16 @@ $ composer require ntgnn/swagger
 ```
 After the package is loaded, it will provide you with 3 console commands: init, generate-docs and copy-assets
 
-***Init***: the init command will setup the settings file (config/swagger.php) and create a very basic folder structure for swagger-related files inside your app/Http folder. You should run this command only once per install. 
+***Init***: this command will setup the settings file (config/swagger.php) and create a folder for swagger-related files inside your app/Http. You should run this command only once per install. 
 
 ```bash
 $ php artisan swagger:init
+```
+
+***Copy-Assets***: this command with copy the swagger-ui related files to the public folder. You should run this command only once per install. 
+
+```bash
+$ php artisan swagger:copy-assets
 ```
 
 ***Generate-Docs***: this command will scan your php files and generate the json specification file to be used by the swagger ui. The json file will be located inside the public folder. You should run this command every time you want to update the json file, for instance after annotating a controller. 
@@ -21,18 +27,13 @@ $ php artisan swagger:init
 ```bash
 $ php artisan swagger:generate-docs
 ```
-***Copy-Assets***: this command with copy the swagger-ui related files to the public folder. You should run this command only once per install. 
-
-```bash
-$ php artisan swagger:copy-assets
-```
 
 ### Quick setup
-1. Go to an existing laraavel app or create one
+1. Go to an existing laravel app or create one
 2. Install the ntgnn/swagger package
 3. Run the init command
-4. Run the generate-docs command
-5. Run the copy-assets command
+4. Run the copy-assets command
+5. Run the generate-docs command
 6. Serve the app and browse the route /docs 
 
 
