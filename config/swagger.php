@@ -19,7 +19,7 @@ return [
         'include_git_info' => true,
         'constants' => [
             'TOKEN_KEY' => env('PORTAL_API_TOKEN_KEY', 'exemplotokenkey'),
-            'SWAGGER_CONST_HOST' => env('APP_URL', 'https://www.exemplo.com.br/api/exemplo'),
+            'SERVER_URL' => env('APP_URL', 'https://www.exemplo.com.br/api/exemplo'),
             'DESCRIPTION' => env('SISTEMA_DESC', 'API para exemplificar a utilização do swagger')
         ],
         'excluded_dirs' => [],
