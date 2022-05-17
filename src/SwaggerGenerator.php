@@ -1,6 +1,6 @@
 <?php
 
-namespace Ntgnn\Swagger;
+namespace Quattror\Swagger;
 
 use File;
 use OpenApi\Annotations\OpenApi;

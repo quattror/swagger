@@ -1,10 +1,10 @@
 <?php
 
-namespace Ntgnn\Swagger\Commands;
+namespace Quattror\Swagger\Commands;
 
 use File;
 use Illuminate\Console\Command;
-use Ntgnn\Swagger\SwaggerServiceProvider;
+use Quattror\Swagger\SwaggerServiceProvider;
 
 class SwaggerInitCommand extends Command
 {

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Ntgnn\Swagger\Commands;
+namespace Quattror\Swagger\Commands;
 
 use File;
 use Illuminate\Console\Command;
-use Ntgnn\Swagger\SwaggerGenerator;
+use Quattror\Swagger\SwaggerGenerator;
 
 class SwaggerGenerateDocsCommand extends Command
 {

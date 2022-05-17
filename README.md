@@ -1,4 +1,4 @@
-## ntgnn/swagger
+## quattror/swagger
 
 Yet another tool for documenting laravel-based APIs with OpenApi/Swagger. This package is highly inspired by great [DarkaOnLine/L5-Swagger](https://github.com/DarkaOnLine/L5-Swagger) and also wraps [zircote/swagger-php](https://github.com/zircote/swagger-php) and [swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui), but since we had some particular requirements plus some issues when serving the static assets for swagger-ui, we decided do take a different approach.
 This package only supports OpenAPI annotations, Swagger 3.0, Laravel >=5.6.
@@ -6,7 +6,7 @@ This package only supports OpenAPI annotations, Swagger 3.0, Laravel >=5.6.
 To install this package in your laravel app, just use composer:
 
 ```bash
-$ composer require ntgnn/swagger
+$ composer require quattror/swagger
 ```
 After the package is loaded, it will provide you with 3 console commands: init, generate-docs and copy-assets
 
@@ -30,7 +30,7 @@ $ php artisan swagger:generate-docs
 
 ### Quick setup
 1. Go to an existing laravel app or create one
-2. Install the ntgnn/swagger package
+2. Install the quattror/swagger package
 3. Run the init command
 4. Run the copy-assets command
 5. Run the generate-docs command

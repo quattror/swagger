@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ntgnn\Swagger\Http\Controllers;
+namespace Quattror\Swagger\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Request;

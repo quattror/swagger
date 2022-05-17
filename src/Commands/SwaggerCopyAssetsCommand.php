@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ntgnn\Swagger\Commands;
+namespace Quattror\Swagger\Commands;
 
 use File;
 use Illuminate\Console\Command;

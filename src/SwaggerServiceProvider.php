@@ -1,6 +1,6 @@
 <?php
 
-namespace Ntgnn\Swagger;
+namespace Quattror\Swagger;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,9 +9,9 @@ class SwaggerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            \Ntgnn\Swagger\Commands\SwaggerInitCommand::class,
-            \Ntgnn\Swagger\Commands\SwaggerGenerateDocsCommand::class,
-            \Ntgnn\Swagger\Commands\SwaggerCopyAssetsCommand::class
+            \Quattror\Swagger\Commands\SwaggerInitCommand::class,
+            \Quattror\Swagger\Commands\SwaggerGenerateDocsCommand::class,
+            \Quattror\Swagger\Commands\SwaggerCopyAssetsCommand::class
         ]);
     }
 

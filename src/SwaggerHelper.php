@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ntgnn\Swagger;
+namespace Quattror\Swagger;
 
 
 class SwaggerHelper
