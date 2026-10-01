@@ -2,7 +2,7 @@
 class ExemploController //This is a sample laravel Controller
 {
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/api/exemplo",
      *     tags={"Seção"},
      *     summary="Função vazia apenas para exemplificar",

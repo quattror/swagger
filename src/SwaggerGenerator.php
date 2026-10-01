@@ -3,7 +3,10 @@
 namespace Quattror\Swagger;
 
 use File;
+use OpenApi\Analysers\TokenAnalyser;
 use OpenApi\Annotations\OpenApi;
+use OpenApi\Generator;
+use OpenApi\Util;
 
 class SwaggerGenerator
 {
@@ -106,10 +109,15 @@ class SwaggerGenerator
      */
     protected function scanFilesForDocumentation()
     {
-        $this->swagger = \OpenApi\scan(
-            $this->annotationsDir,
-            ['exclude' => $this->excludedDirs]
-        );
+        $sources = [];
+        foreach ((array) $this->annotationsDir as $directory) {
+            $sources[] = Util::finder($directory, $this->excludedDirs ?: null);
+        }
+
+        $this->swagger = (new Generator())
+            ->setVersion(OpenApi::VERSION_3_0_0)
+            ->setAnalyser(new TokenAnalyser())
+            ->generate($sources);
 
         return $this;
     }

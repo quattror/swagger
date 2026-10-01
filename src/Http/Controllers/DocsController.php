@@ -20,7 +20,10 @@ class DocsController extends BaseController
             if (! is_array($proxy)) {
                 $proxy = [$proxy];
             }
-            Request::setTrustedProxies($proxy, Request::HEADER_X_FORWARDED_ALL);
+            Request::setTrustedProxies($proxy, \Illuminate\Http\Request::HEADER_X_FORWARDED_FOR
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_HOST
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_PORT
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_PROTO);
         }
 
         return Response::make(
