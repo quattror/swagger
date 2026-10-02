@@ -2,7 +2,7 @@
 
 namespace Quattror\Swagger;
 
-use File;
+use Illuminate\Support\Facades\File;
 use OpenApi\Analysers\TokenAnalyser;
 use OpenApi\Annotations\OpenApi;
 use OpenApi\Generator;
@@ -71,7 +71,7 @@ class SwaggerGenerator
      */
     protected function prepareDirectory()
     {
-        $path = 'public/' . $this->outputDir;
+        $path = public_path($this->outputDir);
 
         if (!File::exists($path)) {
            File::makeDirectory($path);
@@ -146,7 +146,7 @@ class SwaggerGenerator
      */
     protected function saveJson()
     {
-        $filePath = 'public/' . $this->outputDir . '/' . $this->jsonFile;
+        $filePath = public_path($this->outputDir . '/' . $this->jsonFile);
         $this->swagger->saveAs($filePath);
 
         return $this;

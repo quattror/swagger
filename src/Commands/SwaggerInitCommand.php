@@ -2,9 +2,8 @@
 
 namespace Quattror\Swagger\Commands;
 
-use File;
 use Illuminate\Console\Command;
-use Quattror\Swagger\SwaggerServiceProvider;
+use Illuminate\Support\Facades\File;
 
 class SwaggerInitCommand extends Command
 {

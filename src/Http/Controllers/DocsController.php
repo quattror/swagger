@@ -4,8 +4,8 @@
 namespace Quattror\Swagger\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use Request;
-use Response;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class DocsController extends BaseController
 {
