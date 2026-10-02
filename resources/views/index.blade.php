@@ -73,11 +73,6 @@
         var ui = SwaggerUIBundle(configObject);
         window.ui = ui;
 
-        var versionLabel = document.querySelector(".select-label > span");
-        if (versionLabel) {
-            versionLabel.textContent = "Versão";
-        }
-
         var filterPlaceholder = "Filtrar por tag";
         var applyFilterPlaceholder = function () {
             var filterInput = document.querySelector(".operation-filter-input");
@@ -100,9 +95,27 @@
             }
         }
 
-        var topbarLink = document.querySelector(".topbar-wrapper > .link");
-        if (topbarLink) {
+        var applyTopbar = function () {
+            var versionLabel = document.querySelector(".select-label > span");
+            var topbarLink = document.querySelector(".topbar-wrapper > .link");
+            if (!versionLabel || !topbarLink) {
+                return false;
+            }
+            versionLabel.textContent = "Versão";
             topbarLink.innerHTML = '<img src="{{ $logo }}" alt=""><span><p style="font-size: 11px; color: #efefef; margin:0;">Documentação</p>{{ $title }}</span>';
+            return true;
+        };
+
+        if (!applyTopbar()) {
+            var topbarObserver = new MutationObserver(function () {
+                if (applyTopbar()) {
+                    topbarObserver.disconnect();
+                }
+            });
+            var topbarRoot = document.getElementById("swagger-ui");
+            if (topbarRoot) {
+                topbarObserver.observe(topbarRoot, { childList: true, subtree: true });
+            }
         }
     }
 </script>
