@@ -15,8 +15,8 @@ return [
         'annotations_dir' => [
             base_path('app/Http'),
         ],
-        'include_app_info' => true,
-        'include_git_info' => true,
+        'include_app_info' => false,
+        'include_git_info' => false,
         'constants' => [
             'TOKEN_KEY' => env('PORTAL_API_TOKEN_KEY', 'exemplotokenkey'),
             'SERVER_URL' => env('APP_URL', 'https://www.exemplo.com.br/api/exemplo'),

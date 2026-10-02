@@ -3,7 +3,7 @@
 
 namespace Quattror\Swagger\Commands;
 
-use File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Console\Command;
 
 class SwaggerCopyAssetsCommand extends Command

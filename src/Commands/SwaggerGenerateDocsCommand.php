@@ -3,8 +3,8 @@
 
 namespace Quattror\Swagger\Commands;
 
-use File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Quattror\Swagger\SwaggerGenerator;
 
 class SwaggerGenerateDocsCommand extends Command
@@ -39,12 +39,13 @@ class SwaggerGenerateDocsCommand extends Command
 
     private function getAppInfo()
     {
+        $env = strtoupper((string) config('swagger.controller.view_env', 'local'));
+        $url = (string) config('swagger.generator.constants.SERVER_URL', '');
+
         return '<br><p>Informações da Aplicação:</p>' .
             '<ul>' .
-            '<li>Ambiente atual: <b>' . strtoupper(env('APP_ENV', 'local')) . '</b></li>' .
-            '<li>Banco de dados (' . env('DB_CONNECTION', 'exemplo') . '): <b>' . env('DB_DATABASE', 'DBEXE') . '</b></li>' .
-            '<li>URL da API do Portal de Sistemas: <a href=\'' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') . '\'>' . env('PORTAL_API_URL', 'https://www.exemplo.com.br/api/exemplo') .'</a></li>'.
-            '<li>Portal Token Key: <b>' . env('PORTAL_API_TOKEN_KEY', 'exemplotokenkey') . '</b></li>'.
+            '<li>Ambiente atual: <b>' . $env . '</b></li>' .
+            '<li>URL da API: <a href=\'' . $url . '\'>' . $url . '</a></li>' .
             '</ul>';
     }
 
