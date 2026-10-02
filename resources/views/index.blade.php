@@ -55,6 +55,20 @@
         configObject.dom_id = "#swagger-ui";
         configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
         configObject.layout = "StandaloneLayout";
+        configObject.plugins = [
+            function () {
+                return {
+                    fn: {
+                        opsFilter: function (taggedOps, phrase) {
+                            var needle = String(phrase).toLowerCase();
+                            return taggedOps.filter(function (tagObj, tag) {
+                                return String(tag).toLowerCase().indexOf(needle) !== -1;
+                            });
+                        }
+                    }
+                };
+            }
+        ];
 
         var ui = SwaggerUIBundle(configObject);
         window.ui = ui;
@@ -62,6 +76,28 @@
         var versionLabel = document.querySelector(".select-label > span");
         if (versionLabel) {
             versionLabel.textContent = "Versão";
+        }
+
+        var filterPlaceholder = "Filtrar por tag";
+        var applyFilterPlaceholder = function () {
+            var filterInput = document.querySelector(".operation-filter-input");
+            if (!filterInput) {
+                return false;
+            }
+            filterInput.placeholder = filterPlaceholder;
+            return true;
+        };
+
+        if (!applyFilterPlaceholder()) {
+            var filterObserver = new MutationObserver(function () {
+                if (applyFilterPlaceholder()) {
+                    filterObserver.disconnect();
+                }
+            });
+            var swaggerRoot = document.getElementById("swagger-ui");
+            if (swaggerRoot) {
+                filterObserver.observe(swaggerRoot, { childList: true, subtree: true });
+            }
         }
 
         var topbarLink = document.querySelector(".topbar-wrapper > .link");
